@@ -38,7 +38,7 @@ build:
     - remove_duplicates_nbody.py=moltemplate.remove_duplicates_nbody:main
     - renumber_DATA_first_column.py=moltemplate.renumber_DATA_first_column:main
   skip: true  # [win] 
-  number: 0
+  number: 1
 
 requirements:
   host:
