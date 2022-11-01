@@ -1,5 +1,5 @@
 {% set name = "moltemplate" %}
-{% set version = "2.20.14" %}
+{% set version = "2.20.15" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/moltemplate-{{ version }}.tar.gz
-  sha256: 402efaf3d900e88aeb419837a98e39ff31fe7c9efa7b7ad1f16e3917369ac4e9
+  sha256: a0f96a0bbc2b8c2d51a607af5add3ade94426424d300d3073ae11f6ca93c8096
 
 build:
   entry_points:
@@ -38,7 +38,7 @@ build:
     - remove_duplicates_nbody.py=moltemplate.remove_duplicates_nbody:main
     - renumber_DATA_first_column.py=moltemplate.renumber_DATA_first_column:main
   skip: true  # [win]
-  number: 1
+  number: 0
 
 requirements:
   host:
