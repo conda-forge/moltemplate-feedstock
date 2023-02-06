@@ -1,5 +1,5 @@
 {% set name = "moltemplate" %}
-{% set version = "2.20.18" %}
+{% set version = "2.20.19" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/moltemplate-{{ version }}.tar.gz
-  sha256: 03fd1ef22bc21d821ac74d45e1f55821904108141a43524297402b8f64cc10df
+  sha256: 931b89d71717a110ee8f640ea84bd868cef22bbef4c0cba75d1aaea916f973ab
 
 build:
   entry_points:
