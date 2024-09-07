@@ -45,11 +45,11 @@ requirements:
     - pip
     - pytest-runner
     - setuptools
-    - pkg-config
     - python
   run:
     - numpy
     - python
+    - setuptools
 
 test:
   imports:
