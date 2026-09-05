@@ -1,0 +1,77 @@
+schema_version: 1
+
+context:
+  name: moltemplate
+  version: "2.22.5"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/moltemplate-${{ version }}.tar.gz
+  sha256: eac5b30146dd9529c86ba3a8ce05e5a84cbdb48494d6f0dc4a0db1661c61b829
+
+build:
+  number: 1
+  skip: win
+  python:
+    entry_points:
+      - ttree.py=moltemplate.ttree:main
+      - ttree_render.py=moltemplate.ttree_render:main
+      - bonds_by_type.py=moltemplate.bonds_by_type:main
+      - charge_by_bond.py=moltemplate.charge_by_bond:main
+      - dump2data.py=moltemplate.dump2data:main
+      - extract_espresso_atom_types.py=moltemplate.extract_espresso_atom_types:main
+      - extract_lammps_data.py=moltemplate.extract_lammps_data:main
+      - ettree.py=moltemplate.ettree:main
+      - genpoly_lt.py=moltemplate.genpoly_lt:main
+      - genpoly_modify_lt.py=moltemplate.genpoly_modify_lt:main
+      - interpolate_curve.py=moltemplate.interpolate_curve:main
+      - ltemplify.py=moltemplate.ltemplify:main
+      - lttree.py=moltemplate.lttree:main
+      - lttree_check.py=moltemplate.lttree_check:main
+      - lttree_postprocess.py=moltemplate.lttree_postprocess:main
+      - nbody_by_type.py=moltemplate.nbody_by_type:main
+      - nbody_fix_ttree_assignments.py=moltemplate.nbody_fix_ttree_assignments:main
+      - nbody_reorder_atoms.py=moltemplate.nbody_reorder_atoms:main
+      - pdbsort.py=moltemplate.pdbsort:main
+      - postprocess_input_script.py=moltemplate.postprocess_input_script:main
+      - postprocess_coeffs.py=moltemplate.postprocess_coeffs:main
+      - raw2data.py=moltemplate.raw2data:main
+      - recenter_coords.py=moltemplate.recenter_coords:main
+      - remove_duplicate_atoms.py=moltemplate.remove_duplicate_atoms:main
+      - remove_duplicates_nbody.py=moltemplate.remove_duplicates_nbody:main
+      - renumber_DATA_first_column.py=moltemplate.renumber_DATA_first_column:main
+
+requirements:
+  host:
+    - pip
+    - pytest-runner
+    - setuptools
+    - python
+  run:
+    - numpy
+    - python
+    - setuptools
+
+tests:
+  - python:
+      imports:
+        - moltemplate
+      pip_check: true
+  - requirements:
+      run:
+        - pip
+    script:
+      - postprocess_coeffs.py --help
+
+about:
+  summary: A general cross-platform text-based molecule builder for LAMMPS
+  license: MIT
+  license_file: LICENSE.md
+  homepage: https://github.com/jewettaij/moltemplate
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
